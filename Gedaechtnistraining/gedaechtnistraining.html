@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gedächtnis-Training</title>
+    <link rel="stylesheet" href="js5.css">
+</head>
+<body>
+    <p><script>
+        let zaehler = 0, laenge = 3, text, eingabe, ausgabe = "";
+
+        alert("Gedächtnis-Training:\n\nMerken Sie sich die Ziffernfolgen," 
+        + "die gleich erscheinen, und geben Sie sie anschließend ein." 
+        + "Es erscheinen zunächst dreimal drei Ziffern, dann dreimal" 
+        + "vier Ziffern usw. Sobald Sie eine Ziffernfolge"
+        + "falsch eingegeben haben, ist das Ende des Trainings"
+        + "erreicht, und es erfolgt eine Bewertung. Wenn Sie die"
+        + "Internetseite aktualisieren, beginnt das Training wieder von vorn.");
+
+        do {
+            zaehler++;
+            if(zaehler>3) {
+                laenge++;
+                zaehler= 1;
+            }
+
+            text = "";
+            for(let i=1; i<=laenge; i++)
+                text += Math.floor(Math.random() * 10);
+            alert("Ziffernfolge: " + text);
+
+            eingabe = prompt("Ihre Eingabe");
+            ausgabe += text + "<br>";
+        }
+        while(eingabe == text);
+
+        let anzahl = laenge - 1;
+        if(anzahl < 3)
+            anzahl = 0;
+        ausgabe += "Sie konnten sich " + anzahl + "Ziffern merken";
+        document.write(ausgabe);
+
+    </script>
+
+
+    </p>
+    
+</body>
+</html>
